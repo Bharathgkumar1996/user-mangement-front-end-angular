@@ -1,0 +1,138 @@
+<div>
+    <div class="row pb-5">
+            <div class="col-sm-12">
+                <div class="card card-stats mb-4 mb-lg-0 boxshadow">
+                    <div class="card-body padding">
+                        <h3 style="text-align: center;" class="card-title text-uppercase mb-0">User Management</h3>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+
+
+
+<div class="row mt-3 mb-5 pb-5">
+    <div class="col-sm-4 ">
+        <!-- <div style="width: 18.5rem;"> -->
+        <div class="card card-stats mb-4 mb-lg-0 boxshadow">
+            <div class="card-body padding mb-3">
+                    <div class="row">
+                            <div class="col text-center">
+                                <h6 class="card-title text-uppercase text-muted mb-3">
+                                    Add User
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                               <div class="col-md-12">
+                                <form [formGroup]="userForm" >
+                                    <div class="form-group">
+                                            <!-- <label for="exampleFormControlInput1">Email address</label> -->
+                                            <input type="text" class="form-control" formControlName="user_name" id="exampleFormControlInput1" placeholder="User Name" [ngClass]="{ 'is-invalid': submitted && f.user_name.errors }">
+                                            <div *ngIf="submitted && f.user_name.errors" class="invalid-feedback">
+                                                <div *ngIf="f.user_name.errors.required">User Name is required</div>
+                                                <div *ngIf="f.user_name.errors.minlength">Give a proper Company Name</div>
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <!-- <label for="exampleFormControlInput1">Email address</label> -->
+                                        <input type="text" class="form-control" formControlName="user_number" id="exampleFormControlInput1" placeholder="User Contact Number" [ngClass]="{ 'is-invalid': submitted && f.user_number.errors }">
+                                        <div *ngIf="submitted && f.user_number.errors" class="invalid-feedback">
+                                            <div *ngIf="f.user_number.errors.required">User Contact Number is required</div>
+                                            <div *ngIf="f.user_number.errors.minlength">User Contact Number Minimun Length is 10</div>
+                                            <div *ngIf="f.user_number.errors.maxlength">User Contact Number Maximum Length is 10</div>
+                                        </div>
+                                    </div>
+
+                                        <div class="form-group">    
+                                                <textarea class="form-control" formControlName="user_address" id="exampleFormControlInput1" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.user_address.errors }"></textarea>
+                                                <div *ngIf="submitted && f.user_address.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.user_address.errors.required">Address Required</div>
+                                                    <div *ngIf="f.user_address.errors.minlength">Address , Min 10 words</div>
+                                                </div>
+                                            </div>
+        
+                                </form>
+                               </div> 
+                        </div>
+                    
+
+                        <div class="row">
+                                <div class="col text-center">
+                                        <button class="overviewBtn" (click)="addUser()" >ADD USER</button>
+                                </div>
+                        </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+    <div class="col-sm-4 ">
+        <!-- <div style="width: 18.5rem;"> -->
+        <div class="card card-stats mb-4 mb-lg-0 boxshadow">
+            <div class="card-body padding mb-3">
+                    <div class="row">
+                            <div class="col text-center">
+                                <h6 class="card-title text-uppercase text-muted mb-0">
+                                    Users List
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col text-center">
+                                    <div class="col-md-12">
+                                        <div class="form-group"> 
+                                                <select class="custom-select" class="form-control" (change)="changeUser($event)"  >
+                                                        <option value="">Choose User To View Details</option>
+                                                        <option *ngFor="let user of userList"  value="{{user._id}}" >{{user.user_name | uppercase}}   </option>
+                                                      </select>
+                                                    </div>
+                                    </div>
+                                </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4 ">
+        <div class="card card-stats mb-4 mb-lg-0 boxshadow">
+            <div class="card-body padding mb-3">
+                    <div class="row mb-3">
+                            <div class="col text-center">
+                                <h6 class="card-title text-uppercase text-muted mb-0">
+                                   SEARCH Users
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form [formGroup]="searchForm">
+                                    <div class="form-group">
+                                            <!-- <label for="exampleFormControlInput1">Email address</label> -->
+                                            <input type="text" class="form-control" formControlName="search_employee" id="exampleFormControlInput1" placeholder="Search User by PhoneNumber" [ngClass]="{ 'is-invalid': searchSubmitted && s.search_employee.errors }">
+                                            <div *ngIf="searchSubmitted && s.search_employee.errors" class="invalid-feedback">
+                                                <div *ngIf="s.search_employee.errors.required">Please Enter Valid Serach Term</div>
+                                            </div>
+                                        </div>
+                                         </form>
+                                             </div>
+                        </div>
+                        <div class="row">
+                                <div class="col text-center">
+                                        <button class="overviewBtnSearch" (click)="searchUser()">SEARCH</button>
+                                </div>
+                        </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</div>
+
+
+
+
+</div>

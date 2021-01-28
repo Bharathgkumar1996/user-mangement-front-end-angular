@@ -1,0 +1,42 @@
+<div>
+    <div class="row pb-5">
+            <div class="col-sm-12">
+                <div class="card card-stats mb-4 mb-lg-0 boxshadow">
+                    <div class="card-body padding">
+                        <h3 style="text-align: center;" class="card-title text-uppercase mb-0">User DETAILs</h3>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="row mt-3 d-flex justify-content-center">
+            <div class="col-sm-12">
+                <!-- <div style="width: 29rem;"> -->
+                <div class="card card-stats mb-4 mb-lg-0 boxshadow">
+                    <div class="card-body padding">
+                        <div class="table-details">
+                            <table class="table table-borderless tabMargin mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">User Id</th>
+                                        <th scope="col">User Name</th>
+                                        <th scope="col">User Contact</th>
+                                        <th scope="col">User Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let user of userFound">
+                                    <tr>
+                                        <td>{{user._id }}</td>
+                                        <td>{{user.user_name | titlecase}}</td>
+                                        <td>{{user.user_number }}</td>
+                                        <td>{{user.user_address | titlecase}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
